@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		503C30042E547BDC00898C44 /* Operations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503C2FF82E547BDC00898C44 /* Operations.framework */; };
+		503C30132E547C3000898C44 /* AddOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503C30122E547C3000898C44 /* AddOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		503C2FF82E547BDC00898C44 /* Operations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Operations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		503C30032E547BDC00898C44 /* OperationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OperationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		503C30122E547C3000898C44 /* AddOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOperation.swift; sourceTree = "<group>"; };
+		503C30142E547C5900898C44 /* calculate.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = calculate.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -60,6 +63,8 @@
 		503C2FEE2E547BDC00898C44 = {
 			isa = PBXGroup;
 			children = (
+				503C30122E547C3000898C44 /* AddOperation.swift */,
+				503C30142E547C5900898C44 /* calculate.playground */,
 				503C2FFA2E547BDC00898C44 /* Operations */,
 				503C30072E547BDC00898C44 /* OperationsTests */,
 				503C2FF92E547BDC00898C44 /* Products */,
@@ -194,6 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				503C30132E547C3000898C44 /* AddOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
