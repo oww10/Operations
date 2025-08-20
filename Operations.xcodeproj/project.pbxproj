@@ -29,6 +29,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		502F82CC2E55C44E000D9221 /* StepByStep */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = StepByStep;
+			sourceTree = "<group>";
+		};
 		503C2FFA2E547BDC00898C44 /* Operations */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = Operations;
@@ -63,6 +68,7 @@
 		503C2FEE2E547BDC00898C44 = {
 			isa = PBXGroup;
 			children = (
+				502F82CC2E55C44E000D9221 /* StepByStep */,
 				503C30122E547C3000898C44 /* AddOperation.swift */,
 				503C30142E547C5900898C44 /* calculate.playground */,
 				503C2FFA2E547BDC00898C44 /* Operations */,
@@ -107,6 +113,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				502F82CC2E55C44E000D9221 /* StepByStep */,
 				503C2FFA2E547BDC00898C44 /* Operations */,
 			);
 			name = Operations;
