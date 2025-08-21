@@ -1,5 +1,3 @@
-import UIKit
-
 /*
  *Lv1**
  - [ ]  더하기, 빼기, 나누기, 곱하기 연산을 수행할 수 있는 Calculator 클래스를 만들기
@@ -45,44 +43,43 @@ import UIKit
  */
 enum CalculationError: Error {
     case numberNilError
+    case divisionByZeroError
+    case calculateError
 }
+
+// Strategy(공통적인 인터페이스를 정의)
 protocol AbstractOperation{
     func calculate(number1:Double?, number2:Double?) throws -> Double
 }
 
+
+//Concrete Strategy(Strategy(AbstractOperation) 인터페이스를 사용하여 구현
 class Calculator {
-    let addOperation = AddOperation()
-    let minusOperations = SubstractOperation()
-    let mulitplyOperations = MultiplyOperation()
-    let divOperations = DivideOperation()
+    // AbstractOperation 객체를 참조받는 내부 인스턴스 클래스를 제작
+    private var opertator: AbstractOperation?
+    
+    //어떤 계산기를 사용할지 수정(Add,Sub,Div ...)
+    func op(op: AbstractOperation){
+        self.opertator = op
+    }
+    
+    // 계산 함수
+    func calculate(number1: Double?, number2: Double?) throws -> Double?{
+        return try? opertator?.calculate(number1: number1, number2: number2)
+    }
     
 }
-let calculator = Calculator()
-print("===========addOperation===========")
-print(try calculator.addOperation.calculate(number1: 10, number2: nil))
-print("===========minusOperations===========")
-print(try calculator.minusOperations.calculate(number1: 10, number2: 20))
-print("===========mulitplyOperations===========")
-print(try calculator.mulitplyOperations.calculate(number1: 10, number2: 10))
-print("===========divOperations===========")
-print(try calculator.divOperations.calculate(number1: 10, number2: 0))
 
-print("===========예외처리===========")
-do{
-    let result = try calculator.addOperation.calculate(number1: 10, number2: nil)
-    print(result)
-}catch CalculationError.numberNilError{
-    print("number가 nil 입니다.")
-} catch{
-    print("모르는 에러 발생")
-}
 
+// 전략을 사용할 객체(프로토콜을 참조 받음)
 class AddOperation: AbstractOperation{
+    
     func calculate(number1: Double?, number2: Double?) throws -> Double {
         guard let number1 = number1, let number2 = number2 else{
             print("입력값이 nil 입니다.")
             throw CalculationError.numberNilError
-    }
+        }
+        print("더하기 입력 값은 \(number1 + number2)입니다.")
         return number1 + number2
     }
 }
@@ -92,7 +89,7 @@ class SubstractOperation:AbstractOperation{
             print("입력값이 nil 입니다.")
             throw CalculationError.numberNilError
         }
-    
+        print("빼기 입력 값은 \(number1 - number2)입니다.")
         return number1 - number2
     }
 }
@@ -101,7 +98,8 @@ class MultiplyOperation:AbstractOperation{
         guard let number1 = number1, let number2 = number2 else{
             print("입력값이 nil 입니다.")
             throw CalculationError.numberNilError
-    }
+        }
+        print("곱하기 입력 값은 \(number1 * number2)입니다.")
         return number1 * number2
     }
 }
@@ -111,19 +109,46 @@ class DivideOperation:AbstractOperation{
             print("입력값이 nil 입니다.")
             throw CalculationError.numberNilError
         }
-    
+        
         if number2 == 0 {
             print("num2가 2로 설정되었습니다 수정 부탁드립니다.")
+            throw CalculationError.divisionByZeroError
         }
         
         let divResult = number1 / number2
-        let remainResult = number1 - (divResult * number2)
-        
-        print("값은 : \(divResult) 나머지 값은 \(remainResult)")
+        print("나누기 입력 값은 \(divResult)입니다.")
         return divResult
+    }
+}
+class RemainOperation:AbstractOperation{
+    func calculate(number1: Double?, number2: Double?) throws -> Double {
+        guard let number1 = number1, let number2 = number2 else{
+            print("입력값이 nil 입니다.")
+            throw CalculationError.numberNilError
+        }
+        if number2 == 0 {
+            print("num2가 2로 설정되었습니다 수정 부탁드립니다.")
+            throw CalculationError.divisionByZeroError
+        }
+        print("나머지 입력 값은 \(number1.truncatingRemainder(dividingBy: number2))입니다.")
+        return number1.truncatingRemainder(dividingBy: number2)
     }
 }
 
 
+let calculator = Calculator()
 
+calculator.op(op: AddOperation())
+let result = try calculator.calculate(number1: 10, number2: 2)
 
+calculator.op(op: SubstractOperation())
+let result1 = try calculator.calculate(number1: 10, number2: 2)
+
+calculator.op(op:  MultiplyOperation())
+let result2 = try calculator.calculate(number1: 10, number2: 2)
+
+calculator.op(op: DivideOperation())
+let result3 = try calculator.calculate(number1: 10, number2: 2)
+
+calculator.op(op: RemainOperation())
+let result4 = try calculator.calculate(number1: 10, number2: 2)
