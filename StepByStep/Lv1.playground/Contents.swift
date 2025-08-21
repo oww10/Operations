@@ -28,7 +28,6 @@ class Calculator {
     func addSumOperations(num1:Double?, num2:Double?) -> Double{
         guard let number1 = num1, let number2 = num2 else{
             print("입력값이 nil 입니다.")
-            
             return 0
         }
         let sumResult = number1 + number1
@@ -40,33 +39,31 @@ class Calculator {
     func minusOperations(num1:Double?, num2:Double?) -> Double{
         guard let number1 = num1, let number2 = num2 else{
             print("입력값이 nil 입니다.")
-            
             return 0
         }
+        
         let minusResult = number1 + number1
         
         print(minusResult)
         return minusResult
     }
-    
     func mulitplyOperations(num1:Double?, num2:Double?) -> Double{
-        guard let number1 = num1, let number2 = num2 else{
-            print("입력값이 nil 입니다.")
-            
-            return 0
-        }
-        let mulitplyResult = number1 * number1
-        
-        print(mulitplyResult)
-        return mulitplyResult
+    guard let number1 = num1, let number2 = num2 else{
+        print("입력값이 nil 입니다.")
+        return 0
     }
-    func divOperations(num1:Double?, num2:Double?) -> Double{
         
+    let mulitplyResult = number1 * number1
+    
+    print(mulitplyResult)
+    return mulitplyResult
+}
+    func divOperations(num1:Double?, num2:Double?) -> Double{
         guard let number1 = num1, let number2 = num2 else{
             print("입력값이 nil 입니다.")
-            
             return 0
         }
+        
         if number2 == 0 {
             print("num2가 2로 설정되었습니다 수정 부탁드립니다.")
         }
