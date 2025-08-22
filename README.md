@@ -1,8 +1,8 @@
-# Swift로 계산기 만들기
-
-
-## 기능
-### 더하기, 빼기, 나누기, 곱하기 연산을 수행할 수 있는 Calculator 클래스
-### “나머지 연산”이 가능하도록 코드를 추가
-### 각각의 클래스들을 만들고 클래스간의 관계를 고려하여 Calculator 클래스와 관계 맺기
-### AbstractOperation라는 추상화된 프로토콜 만들기 
+## 💻 IDEs/Editors<br />
+![Xcode](https://img.shields.io/badge/Xcode-007ACC?style=for-the-badge&logo=Xcode&logoColor=white)<br />
+## 📋 Languages<br />
+![Swift](https://img.shields.io/badge/swift-F54A2A?style=for-the-badge&logo=swift&logoColor=white)<br />
+## 🕓 Version Control<br />
+![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)<br />
+## 🎛️ Operating System<br />
+![macOS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0)![iOS](https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white)<br />
