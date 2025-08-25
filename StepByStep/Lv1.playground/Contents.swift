@@ -30,7 +30,7 @@ class Calculator {
             print("입력값이 nil 입니다.")
             return 0
         }
-        let sumResult = number1 + number1
+        let sumResult = number1 + number2
         print(sumResult)
         
         return sumResult
@@ -42,7 +42,7 @@ class Calculator {
             return 0
         }
         
-        let minusResult = number1 + number1
+        let minusResult = number1 - number2
         
         print(minusResult)
         return minusResult
@@ -53,7 +53,7 @@ class Calculator {
         return 0
     }
         
-    let mulitplyResult = number1 * number1
+    let mulitplyResult = number1 * number2
     
     print(mulitplyResult)
     return mulitplyResult

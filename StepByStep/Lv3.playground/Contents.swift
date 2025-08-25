@@ -42,7 +42,7 @@ class AddOperation{
             return 0
         }
         
-        let sumResult = number1 + number1
+        let sumResult = number1 + number2
         
         print("더하기의 값은  \(sumResult)")
         
@@ -56,7 +56,7 @@ class SubstractOperation{
             return 0
         }
         
-        let minusResult = number1 + number1
+        let minusResult = number1 - number2
         
         print("빼기의 값은  \(minusResult)")
         return minusResult
@@ -69,7 +69,7 @@ class MultiplyOperation{
             return 0
         }
         
-        let mulitplyResult = number1 * number1
+        let mulitplyResult = number1 * number2
         
         print("곱하기의 값은 \(mulitplyResult)")
         return mulitplyResult
@@ -87,11 +87,24 @@ class DivideOperation{
         }
         
         let divResult = number1 / number2
-        let remainResult = number1 - (divResult * number2)
         
-        print("값은 : \(divResult) 나머지 값은 \(remainResult)")
+        print("나누기 값은 : \(divResult) ")
         return divResult
         
+    }
+}
+class RemainOperation{
+    func calculate(num1: Double?, num2: Double?)  -> Double {
+        guard let number1 = num1, let number2 = num2 else{
+            print("입력값이 nil 입니다.")
+            return 0
+        }
+        if number2 == 0 {
+            print("num2가 2로 설정되었습니다 수정 부탁드립니다.")
+
+        }
+        print("나머지 입력 값은 \(number1.truncatingRemainder(dividingBy: number2))입니다.")
+        return number1.truncatingRemainder(dividingBy: number2)
     }
 }
 class Calculator {
@@ -99,6 +112,7 @@ class Calculator {
     let minusOperations = SubstractOperation()
     let mulitplyOperations = MultiplyOperation()
     let divOperations = DivideOperation()
+    let remainOperations = RemainOperation()
     
 }
 let calculator = Calculator()
@@ -106,3 +120,4 @@ calculator.addOperation.addSumOperations(num1: 1, num2: nil)
 calculator.minusOperations.minusOperations(num1: 1, num2: 3)
 calculator.mulitplyOperations.mulitplyOperations(num1: 4, num2: 1)
 calculator.divOperations.divOperations(num1: 2, num2: 1)
+calculator.remainOperations.calculate(num1: 10, num2: 2)

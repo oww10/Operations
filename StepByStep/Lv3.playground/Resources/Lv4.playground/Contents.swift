@@ -161,10 +161,10 @@ calculator.op(op: RemainOperation())
 let result4 = try calculator.calculate(number1: 10, number2: 2)
 //do-try-catch를 통한 예외 처리는 런타임에 발생할 수 있는 다양한 오류 상황에 유연하게 대처
 do {
+    let result: () = try
     calculator.op(op: AddOperation())
-    if let result = try calculator.calculate(number1: 10, number2: 2){
-        print(result)
-    }
+    try calculator.calculate(number1: 10, number2: 2)
+    print(result)
 }catch CalculationError.numberNilError{
     print("number가 nil 입니다.")
 }catch CalculationError.divisionByZeroError{
