@@ -73,7 +73,12 @@ class Calculator {
 
 // 전략을 사용할 객체(프로토콜을 참조 받음)
 class AddOperation: AbstractOperation{
-    
+    /*
+     옵셔널 바인딩
+     만약 둘 중 하나라도 nil이라면, else 블록이 실행되어 "입력값이 nil 입니다."라는 메시지를 출력하고 함수를 종료 시킵니다.
+     guard let number1 = num1, let number2 = num2 else{
+     print("입력값이 nil 입니다.")
+     */
     func calculate(number1: Double?, number2: Double?) throws -> Double {
         guard let number1 = number1, let number2 = number2 else{
             print("입력값이 nil 입니다.")
@@ -109,7 +114,8 @@ class DivideOperation:AbstractOperation{
             print("입력값이 nil 입니다.")
             throw CalculationError.numberNilError
         }
-        
+//        Division by Zero 오류를 방지
+//        0으로 나누기를 실행하면 오류가 발생
         if number2 == 0 {
             print("num2가 2로 설정되었습니다 수정 부탁드립니다.")
             throw CalculationError.divisionByZeroError
@@ -153,7 +159,7 @@ let result3 = try calculator.calculate(number1: 10, number2: 2)
 
 calculator.op(op: RemainOperation())
 let result4 = try calculator.calculate(number1: 10, number2: 2)
-
+//do-try-catch를 통한 예외 처리는 런타임에 발생할 수 있는 다양한 오류 상황에 유연하게 대처
 do {
     let result: () = try
     calculator.op(op: AddOperation())
