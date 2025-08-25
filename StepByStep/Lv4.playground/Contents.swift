@@ -136,6 +136,7 @@ class RemainOperation:AbstractOperation{
 }
 
 
+
 let calculator = Calculator()
 
 calculator.op(op: AddOperation())
@@ -152,3 +153,16 @@ let result3 = try calculator.calculate(number1: 10, number2: 2)
 
 calculator.op(op: RemainOperation())
 let result4 = try calculator.calculate(number1: 10, number2: 2)
+
+do {
+    let result: () = try
+    calculator.op(op: AddOperation())
+    try calculator.calculate(number1: 10, number2: 2)
+    print(result)
+}catch CalculationError.numberNilError{
+    print("number가 nil 입니다.")
+}catch CalculationError.divisionByZeroError{
+    print("나누기값이 0 입니다")
+} catch{
+    print("모르는 에러 발생")
+}
